@@ -1,4 +1,4 @@
-import Navbar from "@/components/reusable/navbar";
+import Navbar from "@/components/reusable/navbar/navbar";
 import { Separator } from "@/components/ui/separator";
 import React from "react";
 import CareerSection from "../components/CareerSection";

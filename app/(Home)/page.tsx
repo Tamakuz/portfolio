@@ -1,16 +1,16 @@
-import Navbar from "@/components/reusable/navbar";
-import Image from "next/image";
+"use client";
 import Typer from "./components/Typer";
 import { SiBuymeacoffee } from "react-icons/si";
 import { MdOutlineMiscellaneousServices } from "react-icons/md";
 import { Separator } from "@/components/ui/separator";
 import CardServices from "./components/CardServices";
+import ParticlesProvider from "@/providers/particle-provider";
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <div className="container px-5 lg:px-[20%] mt-10 space-y-5 text-neutral-800 dark:text-neutral-300">
+    <div className="relative">
+      <ParticlesProvider />
+      <main className="container px-5 lg:px-[20%] mt-10 space-y-5 text-neutral-800 dark:text-neutral-300 pt-20 relative z-10">
         <div className="flex justify-between items-center">
           <Typer />
           <a
@@ -41,7 +41,7 @@ export default function Home() {
           </div>
           <CardServices />
         </div>
-      </div>
-    </>
+      </main>
+    </div>
   );
 }

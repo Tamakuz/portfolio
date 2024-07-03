@@ -1,16 +1,6 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
-import foto from "../../public/foto.jpeg";
-import { GoDotFill } from "react-icons/go";
-import { Button } from "../../ui/button";
-import { FaGift } from "react-icons/fa6";
-import TooltipReuseble from "../tooltip-reuseble";
-import Link from "next/link";
-import { BsMenuButtonWideFill, BsMoonStarsFill } from "react-icons/bs";
-import { useTheme } from "next-themes";
-import { LuSunMoon } from "react-icons/lu";
 import {
   FaInfoCircle,
   FaBlog,

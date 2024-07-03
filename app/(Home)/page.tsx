@@ -5,12 +5,13 @@ import { MdOutlineMiscellaneousServices } from "react-icons/md";
 import { Separator } from "@/components/ui/separator";
 import CardServices from "./components/CardServices";
 import ParticlesProvider from "@/providers/particle-provider";
+import CardFindMe from "./components/CardFindMe";
 
 export default function Home() {
   return (
     <div className="relative">
       <ParticlesProvider />
-      <main className="container px-5 lg:px-[20%] mt-10 space-y-5 text-neutral-800 dark:text-neutral-300 pt-20 relative z-10">
+      <main className="container px-5 lg:px-[20%] my-10 space-y-5 text-neutral-800 dark:text-neutral-300 pt-20 relative z-10">
         <div className="flex justify-between items-center">
           <Typer />
           <a
@@ -40,6 +41,19 @@ export default function Home() {
             </p>
           </div>
           <CardServices />
+        </div>
+        <Separator />
+        <div className="space-y-2">
+          <div className="flex items-center gap-1 text-xl font-medium">
+            <SiBuymeacoffee />
+            <h2 className="capitalize">Find Me</h2>
+          </div>
+          <div className="flex flex-col justify-between gap-2 text-neutral-600 dark:text-neutral-400 md:flex-row lg:items-center">
+            <p className="dark:text-neutral-400">
+              Find me on the following platforms: GitHub, Instagram, Facebook, and more
+            </p>
+          </div>
+          <CardFindMe />
         </div>
       </main>
     </div>

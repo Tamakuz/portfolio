@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("bg-[[var(--foreground)]]", inter.className)}>
+      <body className={cn("bg-neutral-950",inter.className)}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <main>
             <Navbar />

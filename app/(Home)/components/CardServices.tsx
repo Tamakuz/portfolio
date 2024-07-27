@@ -1,5 +1,12 @@
+import Marquee from "@/components/magicui/marquee";
 import React from "react";
-import { MdWeb, MdCode, MdDeveloperMode, MdStorage } from "react-icons/md";
+import {
+  MdWeb,
+  MdCode,
+  MdDeveloperMode,
+  MdStorage,
+  MdOutlineMiscellaneousServices,
+} from "react-icons/md";
 
 const services = [
   {
@@ -34,24 +41,39 @@ const services = [
 
 const CardServices = () => {
   return (
-    <div className="mt-6 grid gap-4 md:grid-cols-2">
-      {services.map((service, index) => (
-        <div
-          key={index}
-          className="rounded-xl shadow-sm transition-all duration-300 lg:hover:shadow-md border border-neutral-200 px-6 py-4 dark:border-neutral-800 dark:bg-neutral-800 "
-        >
-          <div className="flex items-center space-x-2">
-            {service.icon}
-            <h3>{service.title}</h3>
-          </div>
-          <span className="text-xs text-neutral-500 dark:text-blue-400">
-            {service.tag}
-          </span>
-          <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-            {service.description}
-          </p>
-        </div>
-      ))}
+    <div className="space-y-2 container">
+      <div className="flex items-center gap-1 text-xl font-medium">
+        <MdOutlineMiscellaneousServices />
+        <h2 className="capitalize">Services</h2>
+      </div>
+      <div className="flex flex-col justify-between gap-2 text-neutral-600 dark:text-neutral-400 md:flex-row lg:items-center">
+        <p className="dark:text-neutral-400">
+          Here are the outstanding services I am ready to deliver to you
+        </p>
+      </div>
+      <div className="relative">
+        <Marquee pauseOnHover className="[--duration:150s]">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="w-[400px] rounded-xl shadow-sm transition-all duration-300 lg:hover:shadow-md border border-neutral-200 p-6 dark:border-neutral-800 dark:bg-neutral-800 "
+            >
+              <div className="flex items-center space-x-2">
+                {service.icon}
+                <h3>{service.title}</h3>
+              </div>
+              <span className="text-xs text-neutral-500 dark:text-blue-400">
+                {service.tag}
+              </span>
+              <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+                {service.description}
+              </p>
+            </div>
+          ))}
+        </Marquee>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/5 bg-gradient-to-r from-white dark:from-neutral-950"></div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/5 bg-gradient-to-l from-white dark:from-neutral-950"></div>
+      </div>
     </div>
   );
 };

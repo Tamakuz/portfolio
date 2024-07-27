@@ -1,5 +1,7 @@
+import { BorderBeam } from "@/components/magicui/border-beam";
 import Marquee from "@/components/magicui/marquee";
 import React from "react";
+import { motion } from "framer-motion";
 import {
   MdWeb,
   MdCode,
@@ -40,23 +42,43 @@ const services = [
 ];
 
 const CardServices = () => {
+  const variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <div className="space-y-2 container">
-      <div className="flex items-center gap-1 text-xl font-medium">
+      <motion.div 
+        className="flex items-center gap-1 text-xl font-medium"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <MdOutlineMiscellaneousServices />
         <h2 className="capitalize">Services</h2>
-      </div>
-      <div className="flex flex-col justify-between gap-2 text-neutral-600 dark:text-neutral-400 md:flex-row lg:items-center">
+      </motion.div>
+      <motion.div 
+        className="flex flex-col justify-between gap-2 text-neutral-600 dark:text-neutral-400 md:flex-row lg:items-center"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
         <p className="dark:text-neutral-400">
           Here are the outstanding services I am ready to deliver to you
         </p>
-      </div>
+      </motion.div>
       <div className="relative">
         <Marquee pauseOnHover className="[--duration:150s]">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
-              className="w-[400px] rounded-xl shadow-sm transition-all duration-300 lg:hover:shadow-md border border-neutral-200 p-6 dark:border-neutral-800 dark:bg-neutral-800 "
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              variants={variants}
+              className="relative w-[400px] rounded-xl shadow-sm transition-all duration-300 lg:hover:shadow-md border border-neutral-200 p-6 dark:border-neutral-800 dark:bg-neutral-800 "
             >
               <div className="flex items-center space-x-2">
                 {service.icon}
@@ -68,7 +90,8 @@ const CardServices = () => {
               <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
                 {service.description}
               </p>
-            </div>
+              <BorderBeam size={100} duration={15} delay={9} colorFrom="#E0E0E0" colorTo="#B0B0B0" />
+            </motion.div>
           ))}
         </Marquee>
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/5 bg-gradient-to-r from-white dark:from-neutral-950"></div>

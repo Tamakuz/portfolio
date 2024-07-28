@@ -2,8 +2,9 @@ import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 import Image from "next/image";
 import React from "react";
 import { FaGithub, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa";
-import { FaCircleArrowRight } from "react-icons/fa6";
 import { SiBuymeacoffee } from "react-icons/si";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 const findMe = [
   {
@@ -66,31 +67,62 @@ const findMe = [
       </div>
     ),
   },
-{
-  Icon: <FaTiktok className="size-10" />,
-  name: "TikTok",
-  description: "Follow me on TikTok for fun and creative content.",
-  href: "#",
-  cta: "Visit my TikTok",
-  className: "col-span-3 lg:col-span-1",
-  background: (
-    <div className="absolute top-0 left-0 w-full h-full">
-      <Image
-        src="/tiktok.png"
-        alt="TikTok"
-        width={1000}
-        height={1000}
-        className="absolute top-0 left-0 w-full h-full object-cover object-left-top"
-      />
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black" />
-    </div>
-  ),
-},
+  {
+    Icon: <FaTiktok className="size-10" />,
+    name: "TikTok",
+    description: "Follow me on TikTok for fun and creative content.",
+    href: "#",
+    cta: "Visit my TikTok",
+    className: "col-span-3 lg:col-span-1",
+    background: (
+      <div className="absolute top-0 left-0 w-full h-full">
+        <Image
+          src="/tiktok.png"
+          alt="TikTok"
+          width={1000}
+          height={1000}
+          className="absolute top-0 left-0 w-full h-full object-cover object-left-top"
+        />
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black" />
+      </div>
+    ),
+  },
 ];
 
 const CardFindMe = () => {
+  const controls = useAnimation();
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            controls.start({ opacity: 1, transition: { duration: 0.5 } });
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [controls]);
+
   return (
-    <div className="space-y-2 container">
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={controls}
+      className="space-y-2 container"
+    >
       <div className="flex items-center gap-1 text-xl font-medium">
         <SiBuymeacoffee />
         <h2 className="capitalize">Find Me</h2>
@@ -106,7 +138,7 @@ const CardFindMe = () => {
           <BentoCard key={idx} {...item} />
         ))}
       </BentoGrid>
-    </div>
+    </motion.div>
   );
 };
 

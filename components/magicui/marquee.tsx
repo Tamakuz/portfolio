@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "@/lib/utils";
 
 interface MarqueeProps {
@@ -7,6 +8,7 @@ interface MarqueeProps {
   children?: React.ReactNode;
   vertical?: boolean;
   repeat?: number;
+  autoplay?: boolean;
   [key: string]: any;
 }
 
@@ -17,8 +19,10 @@ export default function Marquee({
   children,
   vertical = false,
   repeat = 4,
+  autoplay = true,
   ...props
 }: MarqueeProps) {
+
   return (
     <div
       {...props}
@@ -37,9 +41,9 @@ export default function Marquee({
           <div
             key={i}
             className={cn("flex shrink-0 justify-around [gap:var(--gap)]", {
-              "animate-marquee flex-row": !vertical,
-              "animate-marquee-vertical flex-col": vertical,
-              "group-hover:[animation-play-state:paused]": pauseOnHover,
+              "animate-marquee flex-row": !vertical && autoplay,
+              "animate-marquee-vertical flex-col": vertical && autoplay,
+              "group-hover:[animation-play-state:paused]": pauseOnHover && autoplay,
               "[animation-direction:reverse]": reverse,
             })}
           >

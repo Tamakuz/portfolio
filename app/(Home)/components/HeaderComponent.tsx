@@ -1,9 +1,10 @@
+'use client';
 import ParallaxText from '@/components/ui/paralax-text';
 import Ripple from '@/components/ui/riple';
 import Image from 'next/image';
 import React from 'react'
 
-const Header = () => {
+const HeaderComponent = () => {
   return (
     <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden">
       <Image
@@ -26,4 +27,4 @@ const Header = () => {
   );
 }
 
-export default Header
+export default HeaderComponent;

@@ -1,3 +1,4 @@
+import MagneticButton from "@/components/ui/magnetic-button";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -28,10 +29,16 @@ const NavItem = ({ active }: { active: boolean }) => {
           key={index}
           initial={{ scale: 0 }}
           animate={{ scale: active ? 1 : 0 }}
-          transition={{ duration: 0.4 + index * 0.1, delay: index * 0.1, ease: "easeInOut" }}
+          transition={{
+            duration: 0.4 + index * 0.1,
+            delay: index * 0.1,
+            ease: "easeInOut",
+          }}
           className="cursor-pointer mb-2 font-semibold text-neutral-100 dark:text-neutral-700"
         >
-          <Link href={href}>{name}</Link>
+          <MagneticButton>
+            <Link href={href}>{name}</Link>
+          </MagneticButton>
         </motion.li>
       ))}
     </ul>

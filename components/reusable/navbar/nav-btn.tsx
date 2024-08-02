@@ -1,3 +1,4 @@
+import MagneticButton from "@/components/ui/magnetic-button";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { BsList } from "react-icons/bs";
@@ -25,14 +26,20 @@ const NavBtn = ({ active, toggleHamburger }: NavBtnProps) => {
         >
           <motion.div
             initial={{ scale: 1, display: "block" }}
-            animate={{ scale: active ? 0 : 1, display: active ? "none" : "block" }}
+            animate={{
+              scale: active ? 0 : 1,
+              display: active ? "none" : "block",
+            }}
             transition={{ duration: 0.2, ease: "backInOut" }}
           >
             <BsList className="dark:text-zinc-800 text-zinc-200" />
           </motion.div>
           <motion.div
             initial={{ scale: 0, display: "none" }}
-            animate={{ scale: active ? 1 : 0, display: active ? "block" : "none" }}
+            animate={{
+              scale: active ? 1 : 0,
+              display: active ? "block" : "none",
+            }}
             transition={{ duration: 0.2, ease: "backInOut" }}
           >
             <FaArrowUp className="dark:text-zinc-800 text-zinc-200 rotate-90" />

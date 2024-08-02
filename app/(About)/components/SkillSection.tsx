@@ -10,31 +10,26 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { SiExpress, SiNextdotjs, SiShadcnui } from "react-icons/si";
 import { DiMongodb } from "react-icons/di";
+import IconCloud from "@/components/magicui/icon-cloud";
 
-const skills = [
-  <FaHtml5 className="text-[150px] text-orange-500" />,
-  <FaCss3Alt className="text-[150px] text-blue-500" />,
-  <IoLogoJavascript className="text-[150px] text-yellow-500" />,
-  <FaReact className="text-[150px] text-blue-400" />,
-  <RiTailwindCssFill className="text-[150px] text-teal-400" />,
-  <SiNextdotjs className="text-[150px] text-white" />,
-  <SiShadcnui className="text-[150px] text-purple-500" />,
-  <FaNodeJs className="text-[150px] text-green-500" />,
-  <SiExpress className="text-[150px] text-gray-500" />,
-  <DiMongodb className="text-[150px] text-green-600" />,
+
+const slugs = [
+  "typescript",
+  "javascript",
+  "react",
+  "html5",
+  "css3",
+  "nodedotjs",
+  "express",
+  "nextdotjs",
+  "firebase",
+  "vercel",
+  "git",
+  "github",
+  "visualstudiocode", 
 ];
 
 const SkillSection = () => {
-  const settings: Settings = {
-    infinite: true,
-    slidesToShow: 4,
-    autoplay: true,
-    speed: 5000,
-    cssEase: "linear",
-    pauseOnHover: false,
-    arrows: false,
-  };
-
   return (
     <>
       <div className="space-y-2">
@@ -47,14 +42,8 @@ const SkillSection = () => {
             My skills and experience
           </p>
         </div>
-        <div className="carausel-container">
-          <Slider {...settings}>
-            {skills.map((skill, index) => (
-              <div key={index} className="overflow-hidden">
-                {skill}
-              </div>
-            ))}
-          </Slider>
+        <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
+          <IconCloud iconSlugs={slugs} />
         </div>
       </div>
     </>

@@ -50,21 +50,21 @@ const CardServices = () => {
   return (
     <div className="space-y-2 container">
       <motion.div 
-        className="flex items-center gap-1 text-xl font-medium"
+        className="flex items-center gap-2 text-2xl font-semibold"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <MdOutlineMiscellaneousServices />
-        <h2 className="capitalize">Services</h2>
+        <MdOutlineMiscellaneousServices size={30} className="opacity-50" />
+        <h2 className="capitalize opacity-50">Services</h2>
       </motion.div>
       <motion.div 
-        className="flex flex-col justify-between gap-2 text-neutral-600 dark:text-neutral-400 md:flex-row lg:items-center"
+        className="flex flex-col justify-between gap-3 text-neutral-600 dark:text-neutral-400 md:flex-row lg:items-center text-lg"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <p className="dark:text-neutral-400">
+        <p className="dark:text-neutral-400 opacity-50">
           Here are the outstanding services I am ready to deliver to you
         </p>
       </motion.div>

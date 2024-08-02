@@ -5,6 +5,7 @@ import cn from "classnames";
 import NavBtn from "./nav-btn";
 import { Separator } from "@/components/ui/separator";
 import NavItem from "./nav-item";
+import NavTheme from "./nav-theme";
 
 const NavMenu = () => {
   const [active, setActive] = useState<boolean>(false);
@@ -43,6 +44,7 @@ const NavMenu = () => {
           <Separator />
           <NavItem active={active} />
         </div>
+        <NavTheme />
       </motion.div>
     </>
   );

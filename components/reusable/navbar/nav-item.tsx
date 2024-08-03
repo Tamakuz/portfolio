@@ -1,27 +1,33 @@
 import MagneticButton from "@/components/ui/magnetic-button";
 import { motion } from "framer-motion";
-import Link from "next/link";
 
 const navigations = [
   {
     name: "Home",
-    href: "/",
+    href: "home",
   },
   {
     name: "About",
-    href: "/about",
+    href: "about",
   },
   {
     name: "Projects",
-    href: "/projects",
+    href: "projects",
   },
   {
     name: "Contact",
-    href: "/contact",
+    href: "contact",
   },
 ];
 
 const NavItem = ({ active }: { active: boolean }) => {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <ul className="my-3">
       {navigations.map(({ name, href }, index) => (
@@ -35,9 +41,10 @@ const NavItem = ({ active }: { active: boolean }) => {
             ease: "easeInOut",
           }}
           className="cursor-pointer mb-2 font-semibold text-neutral-100 dark:text-neutral-700"
+          onClick={() => scrollToSection(href)}
         >
           <MagneticButton>
-            <Link href={href}>{name}</Link>
+            {name}
           </MagneticButton>
         </motion.li>
       ))}

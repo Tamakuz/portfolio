@@ -6,7 +6,7 @@ import React from 'react'
 
 const HeaderComponent = () => {
   return (
-    <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden">
+    <div id="home" className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden">
       <Image
         src="/foto.jpeg"
         alt="header"

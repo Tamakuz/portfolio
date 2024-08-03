@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 
 interface CardProjectProps {
   dataProject: ProjectData;
@@ -12,23 +13,40 @@ const CardProject: React.FC<CardProjectProps> = ({
   return (
     <Link
       href={`projects/${dataProject.name}`}
-      className="rounded-xl shadow-sm transition-all duration-300 lg:hover:shadow-md relative cursor-pointer border border-neutral-200 bg-gradient-to-br from-white to-neutral-100 dark:border-neutral-700 dark:from-neutral-800 dark:to-neutral-900 lg:hover:scale-[102%] lg:hover:border-neutral-300 dark:lg:hover:border-blue-400 "
+      className="w-full md:w-fit rounded-lg shadow transition duration-300 hover:shadow-lg relative cursor-pointer"
     >
-      <Image
-        src={dataProject.image}
-        width={500}
-        height={300}
-        alt="Honey Movie"
-        priority
-        className="rounded-t-xl"
-      />
-      <div className="p-5 space-y-2">
-        <h2 className="cursor-pointer text-lg text-neutral-700 transition-all duration-300 dark:text-neutral-300 dark:hover:text-blue-400 lg:hover:text-blue-800">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.3 }}
+        className="overflow-hidden rounded-lg"
+      >
+        <Image
+          src={dataProject.image}
+          width={500}
+          height={300}
+          alt={dataProject.name}
+          priority
+          className="rounded-t-lg"
+        />
+      </motion.div>
+      <div className="p-4 space-y-1">
+        <motion.h2
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.1, duration: 0.3 }}
+          className="text-lg font-semibold"
+        >
           {dataProject.name}
-        </h2>
-        <p className="text-[15px] leading-relaxed text-neutral-700 dark:text-neutral-400">
+        </motion.h2>
+        <motion.p
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.3 }}
+          className="text-sm text-neutral-600 dark:text-neutral-400 opacity-50"
+        >
           {dataProject.description}
-        </p>
+        </motion.p>
       </div>
     </Link>
   );

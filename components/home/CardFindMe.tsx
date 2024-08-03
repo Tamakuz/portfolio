@@ -124,11 +124,11 @@ const CardFindMe = () => {
       className="space-y-2 container"
     >
       <div className="flex items-center gap-1 text-2xl font-medium">
-        <SiBuymeacoffee className="opacity-50" />
-        <h2 className="capitalize  opacity-50">Find Me</h2>
+        <SiBuymeacoffee />
+        <h2 className="capitalize">Find Me</h2>
       </div>
       <div className="flex flex-col text-2xl justify-between gap-2 text-neutral-600 dark:text-neutral-400 md:flex-row lg:items-center">
-        <p className="dark:text-neutral-400 opacity-50">
+        <p className="dark:text-neutral-400">
           Find me on the following platforms: GitHub, Instagram, Facebook, and
           more
         </p>

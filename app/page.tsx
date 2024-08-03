@@ -1,5 +1,4 @@
 "use client";
-import RunningSkills from "@/components/home/RuningSkills";
 import CardFindMe from "../components/home/CardFindMe";
 import HeaderComponent from "../components/home/HeaderComponent";
 import SkillsSection from "@/components/home/SkillsSection";

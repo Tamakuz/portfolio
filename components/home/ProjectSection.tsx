@@ -2,8 +2,7 @@
 
 import React, { useEffect, useRef } from 'react'
 import { motion, useAnimation } from 'framer-motion'
-import { MdOutlinePerson, MdOutlineList } from 'react-icons/md'
-import CardProject from '@/app/(Project)/components/CardProject'
+import { MdOutlineList } from 'react-icons/md'
 import Image from 'next/image'
 import Link from 'next/link'
 

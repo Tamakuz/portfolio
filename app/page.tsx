@@ -5,10 +5,11 @@ import SkillsSection from "@/components/home/SkillsSection";
 import AboutSection from "@/components/home/AboutSection";
 import ProjectSection from "@/components/home/ProjectSection";
 import ContactSection from "@/components/home/ContactSection";
+import Footer from "@/components/home/Footer";
 
 export default function Home() {
   return (
-    <div className="relative pb-10">
+    <div className="relative">
       <main className="text-neutral-800 space-y-10 dark:text-neutral-300 relative z-10">
         <HeaderComponent />
         <AboutSection />
@@ -16,6 +17,7 @@ export default function Home() {
         <ProjectSection />
         <CardFindMe />
         <ContactSection />
+        <Footer />
       </main>
     </div>
   );

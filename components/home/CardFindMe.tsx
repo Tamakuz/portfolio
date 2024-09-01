@@ -5,6 +5,7 @@ import { FaGithub, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa";
 import { SiBuymeacoffee } from "react-icons/si";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { useInView } from "react-intersection-observer";
 
 const findMe = [
   {
@@ -91,53 +92,46 @@ const findMe = [
 
 const CardFindMe = () => {
   const controls = useAnimation();
-  const ref = useRef(null);
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true
+  });
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            controls.start({ opacity: 1, transition: { duration: 0.5 } });
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
+    if (inView) {
+      controls.start({ opacity: 1, transition: { duration: 0.5 } });
     }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, [controls]);
+  }, [inView, controls]);
 
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0 }}
       animate={controls}
-      className="space-y-2 container"
+      className="space-y-2 container px-4 sm:px-6 lg:px-8"
     >
       <div className="flex items-center gap-1 text-2xl font-medium">
         <SiBuymeacoffee />
         <h2 className="capitalize">Find Me</h2>
       </div>
-      <div className="flex flex-col text-2xl justify-between gap-2 text-neutral-600 dark:text-neutral-400 md:flex-row lg:items-center">
+      <div className="flex flex-col justify-between gap-3 text-neutral-600 dark:text-neutral-400 md:flex-row lg:items-center text-lg">
         <p className="dark:text-neutral-400">
           Find me on the following platforms: GitHub, Instagram, Facebook, and
           more
         </p>
       </div>
-      <BentoGrid>
+      <div className="md:hidden flex flex-col gap-3">
         {findMe.map((item, idx) => (
           <BentoCard key={idx} {...item} />
         ))}
-      </BentoGrid>
+      </div>
+      <div className="hidden md:block">
+        <BentoGrid>
+          {findMe.map((item, idx) => (
+            <BentoCard key={idx} {...item} />
+          ))}
+        </BentoGrid>
+      </div>
     </motion.div>
   );
 };

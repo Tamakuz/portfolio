@@ -1,92 +1,40 @@
-'use client'
+"use client";
 
-import React, { useEffect, useRef } from 'react'
-import { motion, useAnimation } from 'framer-motion'
-import { MdOutlineList } from 'react-icons/md'
-import Image from 'next/image'
-import Link from 'next/link'
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { MdOutlineInsertLink, MdOutlineList } from "react-icons/md";
+import Image from "next/image";
+import { FaGithub } from "react-icons/fa";
+import { useInView } from "react-intersection-observer";
 
 const projectDatas = [
   {
-    name: "Honey Movie",    
+    name: "Honey Movie",
     route: "/honey-movie",
-    description: "Honey Movie is a website that provides information about movies.",
+    description:
+      "Honey Movie is a website that provides information about movies.",
     image: "/honey-movie.png",
     sourceCode: "https://github.com/Tamakuz/honeymovie",
     liveDemo: "https://honeymovie.vercel.app/",
     cloneUrl: "https://github.com/Tamakuz/honeymovie.git",
     techStack: ["SiNextdotjs", "SiTailwindcss", "SiTypescript"],
-  },
-  {
-    name: "Honey Movie",    
-    route: "/honey-movie",
-    description: "Honey Movie is a website that provides information about movies.",
-    image: "/honey-movie.png",
-    sourceCode: "https://github.com/Tamakuz/honeymovie",
-    liveDemo: "https://honeymovie.vercel.app/",
-    cloneUrl: "https://github.com/Tamakuz/honeymovie.git",
-    techStack: ["SiNextdotjs", "SiTailwindcss", "SiTypescript"],
-  },
-  {
-    name: "Honey Movie",    
-    route: "/honey-movie",
-    description: "Honey Movie is a website that provides information about movies.",
-    image: "/honey-movie.png",
-    sourceCode: "https://github.com/Tamakuz/honeymovie",
-    liveDemo: "https://honeymovie.vercel.app/",
-    cloneUrl: "https://github.com/Tamakuz/honeymovie.git",
-    techStack: ["SiNextdotjs", "SiTailwindcss", "SiTypescript"],
-  },
-  {
-    name: "Honey Movie",    
-    route: "/honey-movie",
-    description: "Honey Movie is a website that provides information about movies.",
-    image: "/honey-movie.png",
-    sourceCode: "https://github.com/Tamakuz/honeymovie",
-    liveDemo: "https://honeymovie.vercel.app/",
-    cloneUrl: "https://github.com/Tamakuz/honeymovie.git",
-    techStack: ["SiNextdotjs", "SiTailwindcss", "SiTypescript"],
-  },
-  {
-    name: "Honey Movie",    
-    route: "/honey-movie",
-    description: "Honey Movie is a website that provides information about movies.",
-    image: "/honey-movie.png",
-    sourceCode: "https://github.com/Tamakuz/honeymovie",
-    liveDemo: "https://honeymovie.vercel.app/",
-    cloneUrl: "https://github.com/Tamakuz/honeymovie.git",
-    techStack: ["SiNextdotjs", "SiTailwindcss", "SiTypescript"],
-  },
+  }
 ];
 const ProjectSection = () => {
   const controls = useAnimation();
-  const ref = useRef(null);
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true
+  });
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            controls.start({ opacity: 1, y: 0 });
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
+    if (inView) {
+      controls.start({ opacity: 1, y: 0 });
     }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, [controls]);
+  }, [inView, controls]);
 
   return (
-    <div id="projects" className="space-y-2 container" ref={ref}>
+    <div id="projects" className="space-y-2 container px-4 sm:px-6 lg:px-8" ref={ref}>
       <motion.div
         className="flex items-center gap-2 text-2xl font-semibold"
         initial={{ opacity: 0, y: -20 }}
@@ -106,44 +54,76 @@ const ProjectSection = () => {
           Explore some of the projects I've developed
         </p>
       </motion.div>
-      <section className="grid grid-cols-3 gap-3">
-        {projectDatas.map((project, index: number) => (
-          <Link
-            href={`projects/${project.name}`}
-            className="w-full md:w-fit rounded-lg shadow transition duration-300 hover:shadow-lg relative cursor-pointer"
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {projectDatas.map((project, index) => (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, y: 30 }}
+            animate={controls}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.1,
+              type: "spring",
+              stiffness: 100,
+            }}
+            className="w-full rounded-lg shadow-lg transition duration-500 hover:shadow-xl hover:scale-105 relative cursor-pointer overflow-hidden"
           >
+            <Image
+              src={project.image}
+              width={500}
+              height={300}
+              alt={project.name}
+              priority
+              className="rounded-t-lg"
+              placeholder="blur"
+              blurDataURL="/path/to/your/loading-image.jpg"
+            />
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              className="overflow-hidden rounded-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 + index * 0.1, duration: 0.4 }}
+              className="p-4 space-y-1"
             >
-              <Image
-                src={project.image}
-                width={500}
-                height={300}
-                alt={project.name}
-                priority
-                className="rounded-t-lg"
-              />
-            </motion.div>
-            <div className="p-4 space-y-1">
-              <h2
-                className="text-lg font-semibold"
-              >
-                {project.name}
-              </h2>
-              <p
-                className="text-sm text-neutral-600 dark:text-neutral-400"
-              >
+              <h2 className="text-lg font-semibold">{project.name}</h2>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400">
                 {project.description}
               </p>
-            </div>
-          </Link>
+              <div className="flex gap-4 mt-5">
+                <a
+                  target="_blank"
+                  className="cursor-pointer"
+                  href={project.sourceCode}
+                >
+                  <div className="flex items-center gap-2 font-medium text-neutral-700 dark:text-neutral-300 ">
+                    <FaGithub size={22} />
+                    <span className="text-[15px] transition-all duration-300 dark:text-teal-500 hover:dark:text-teal-400 opacity-70">
+                      Source Code
+                    </span>
+                  </div>
+                </a>
+                <span className="text-neutral-400 dark:text-neutral-600">
+                  |
+                </span>
+                <a
+                  target="_blank"
+                  className="cursor-pointer"
+                  href={project.liveDemo}
+                >
+                  <div className="flex items-center gap-2 font-medium text-neutral-700 dark:text-neutral-300 ">
+                    <MdOutlineInsertLink size={22} />
+                    <span className="text-[15px] transition-all duration-300 dark:text-teal-500 hover:dark:text-teal-400 opacity-70">
+                      Live Demo
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
         ))}
       </section>
     </div>
   );
-}
+};
 
-export default ProjectSection
+export default ProjectSection;

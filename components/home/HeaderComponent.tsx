@@ -17,7 +17,7 @@ const HeaderComponent = () => {
       <div className="absolute bottom-0 left-0 w-full">
         <ParallaxText
           baseVelocity={1}
-          className="text-[150px] font-extrabold uppercase opacity-25"
+          className="text-[150px] text-neutral-950 dark:text-neutral-50 font-extrabold uppercase opacity-25"
         >
           Fullstack Web Developer
         </ParallaxText>

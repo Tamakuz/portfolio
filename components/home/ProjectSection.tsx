@@ -18,8 +18,19 @@ const projectDatas = [
     liveDemo: "https://honeymovie.vercel.app/",
     cloneUrl: "https://github.com/Tamakuz/honeymovie.git",
     techStack: ["SiNextdotjs", "SiTailwindcss", "SiTypescript"],
-  }
+  },
+  {
+    name: "Product Video Example",
+    route: "#",
+    description: "Create product videos that convert.",
+    image: "/project2.png",
+    sourceCode: "https://github.com/Tamakuz/productvideoexemple",
+    liveDemo: "https://productvideoexemple.vercel.app/",
+    cloneUrl: "https://github.com/Tamakuz/productvideoexemple.git",
+    techStack: ["SiNextdotjs", "SiTailwindcss", "SiTypescript"],
+  },
 ];
+
 const ProjectSection = () => {
   const controls = useAnimation();
   const { ref, inView } = useInView({

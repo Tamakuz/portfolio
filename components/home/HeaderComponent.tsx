@@ -3,7 +3,6 @@ import ParallaxText from "@/components/ui/paralax-text";
 import Ripple from "@/components/ui/riple";
 import Image from "next/image";
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import BlurIn from "../magicui/blur-in";
 import { TextHoverEffect } from "../ui/text-hover-effect";
 import Particles from "../magicui/particles";
 import { useTheme } from "next-themes";

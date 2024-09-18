@@ -1,7 +1,7 @@
 import { BorderBeam } from "@/components/magicui/border-beam";
 import Marquee from "@/components/magicui/marquee";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import {
   SiTypescript,
   SiJavascript,
@@ -102,12 +102,16 @@ const variants = {
 };
 
 const SkillsSection = () => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
-    <div className="space-y-2 container px-4 sm:px-6 lg:px-8">
+    <div className="space-y-2 container px-4 sm:px-6 lg:px-8" ref={ref}>
       <motion.div
         className="flex items-center gap-2 text-2xl font-semibold"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={variants}
         transition={{ duration: 0.5 }}
       >
         <MdOutlineMiscellaneousServices size={30} />
@@ -115,8 +119,9 @@ const SkillsSection = () => {
       </motion.div>
       <motion.div
         className="flex flex-col justify-between gap-3 text-neutral-600 dark:text-neutral-400 md:flex-row lg:items-center text-lg"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={variants}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         <p className="dark:text-neutral-400">
@@ -130,25 +135,45 @@ const SkillsSection = () => {
               <motion.div
                 key={index}
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                animate={isInView ? "visible" : "hidden"}
                 variants={variants}
-                className="relative w-[400px] rounded-xl shadow-sm transition-all duration-300 lg:hover:shadow-md border border-neutral-200 p-6 dark:border-neutral-800 dark:bg-neutral-800 "
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative px-4 py-2 rounded-xl shadow-sm transition-all duration-300 lg:hover:shadow-md border border-neutral-200 dark:border-neutral-800 dark:bg-neutral-800"
               >
                 <div className="flex items-center space-x-2">
                   <skill.icon color={skill.color} />
                   <h3>{skill.title}</h3>
                 </div>
-                <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-                  {skill.description}
-                </p>
                 <BorderBeam
                   size={100}
                   duration={15}
                   delay={9}
-                  colorFrom="#E0E0E0"
-                  colorTo="#B0B0B0"
+                  colorFrom="rgba(224, 224, 224, 0.5)"  // Adjusted opacity
+                  colorTo="rgba(176, 176, 176, 0.5)"    // Adjusted opacity
+                />
+              </motion.div>
+            ))}
+          </Marquee>
+          <Marquee reverse pauseOnHover className="[--duration:150s]">
+            {skills.map((skill, index) => (
+              <motion.div
+                key={index}
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+                variants={variants}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative px-4 py-2 rounded-xl shadow-sm transition-all duration-300 lg:hover:shadow-md border border-neutral-200 dark:border-neutral-800 dark:bg-neutral-800"
+              >
+                <div className="flex items-center space-x-2">
+                  <skill.icon color={skill.color} />
+                  <h3>{skill.title}</h3>
+                </div>
+                <BorderBeam
+                  size={100}
+                  duration={15}
+                  delay={9}
+                  colorFrom="rgba(224, 224, 224, 0.5)"  // Adjusted opacity
+                  colorTo="rgba(176, 176, 176, 0.5)"    // Adjusted opacity
                 />
               </motion.div>
             ))}
@@ -167,10 +192,9 @@ const SkillsSection = () => {
             <motion.div
               key={index}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              animate={isInView ? "visible" : "hidden"}
               variants={variants}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative w-full rounded-xl shadow-sm transition-all duration-300 lg:hover:shadow-md border border-neutral-200 p-6 dark:border-neutral-800 dark:bg-neutral-800 "
             >
               <div className="flex items-center space-x-2">

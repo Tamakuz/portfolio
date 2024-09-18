@@ -68,6 +68,7 @@ const ProjectSection = () => {
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {projectDatas.map((project, index) => (
           <motion.div
+            key={index}
             initial={{ opacity: 0, scale: 0.8, y: 30 }}
             animate={controls}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}

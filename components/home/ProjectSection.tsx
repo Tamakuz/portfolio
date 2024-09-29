@@ -29,6 +29,16 @@ const projectDatas = [
     cloneUrl: "https://github.com/Tamakuz/productvideoexemple.git",
     techStack: ["SiNextdotjs", "SiTailwindcss", "SiTypescript"],
   },
+  {
+    name: "Open API Movie & Anime Streaming",
+    route: "#",
+    description: "Open API Movie & Anime Streaming",
+    image: "/open-api-streaming.png",
+    sourceCode: "https://github.com/Tamakuz/RipleyStream",
+    liveDemo: "https://ripleystream.vercel.app/",
+    cloneUrl: "https://github.com/Tamakuz/RipleyStream.git",
+    techStack: ["SiNextdotjs", "SiTailwindcss", "SiTypescript"],
+  },
 ];
 
 const ProjectSection = () => {

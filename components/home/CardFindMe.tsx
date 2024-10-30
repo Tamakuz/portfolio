@@ -17,11 +17,9 @@ const findMe = [
     className: "col-span-3 lg:col-span-1",
     background: (
       <div className="absolute top-0 left-0 w-full h-full">
-        <Image
+        <img
           src="/github.png"
           alt="GitHub"
-          width={1000}
-          height={1000}
           className="absolute top-0 left-0 w-full h-full object-cover object-left"
         />
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black" />
@@ -37,11 +35,9 @@ const findMe = [
     className: "col-span-3 lg:col-span-2",
     background: (
       <div className="absolute top-0 left-0 w-full h-full">
-        <Image
+        <img
           src="/linkedin.png"
           alt="LinkedIn"
-          width={1000}
-          height={1000}
           className="absolute top-0 left-0 w-full h-full object-cover object-left"
         />
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black" />
@@ -57,11 +53,9 @@ const findMe = [
     className: "col-span-3 lg:col-span-2",
     background: (
       <div className="absolute top-0 left-0 w-full h-full">
-        <Image
+        <img
           src="/instagram.png"
           alt="Instagram"
-          width={1000}
-          height={1000}
           className="absolute top-0 left-0 w-full h-full object-cover object-left-top"
         />
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black" />
@@ -77,11 +71,9 @@ const findMe = [
     className: "col-span-3 lg:col-span-1",
     background: (
       <div className="absolute top-0 left-0 w-full h-full">
-        <Image
+        <img
           src="/tiktok.png"
           alt="TikTok"
-          width={1000}
-          height={1000}
           className="absolute top-0 left-0 w-full h-full object-cover object-left-top"
         />
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black" />

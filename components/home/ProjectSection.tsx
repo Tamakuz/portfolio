@@ -39,6 +39,16 @@ const projectDatas = [
     cloneUrl: "https://github.com/Tamakuz/RipleyStream.git",
     techStack: ["SiNextdotjs", "SiTailwindcss", "SiTypescript"],
   },
+  {
+    name: "Canva Clone",
+    route: "#",
+    description: "A simplified clone of Canva's design editor functionality",
+    image: "/canvaclone.png",
+    sourceCode: "https://github.com/Tamakuz/canvaclone",
+    liveDemo: "https://canvaclone-ecru.vercel.app/",
+    cloneUrl: "https://github.com/Tamakuz/canvaclone.git",
+    techStack: ["SiNextdotjs", "SiTailwindcss", "SiTypescript"],
+  },
 ];
 
 const ProjectSection = () => {

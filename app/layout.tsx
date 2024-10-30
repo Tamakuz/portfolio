@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import Navbar from "@/components/reusable/navbar/navbar";
 import { cn } from "@/lib/utils";
+import { SmoothScrollProvider } from "@/providers/SmoothScrollProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -145,12 +146,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("dark:bg-neutral-950 bg-neutral-50 overflow-x-hidden",inter.className)}>
+      <body
+        className={cn(
+          "dark:bg-neutral-950 bg-neutral-50 overflow-x-hidden",
+          inter.className
+        )}
+      >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <main>
-            <Navbar />
-            {children}
-          </main>
+          {children}
         </ThemeProvider>
       </body>
     </html>

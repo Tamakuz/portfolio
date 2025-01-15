@@ -15,7 +15,7 @@ const projectDatas = [
       "Honey Movie is a website that provides information about movies.",
     image: "/honey-movie.png",
     sourceCode: "https://github.com/Tamakuz/honeymovie",
-    liveDemo: "https://honeymovie.vercel.app/",
+    liveDemo: "https://honeystream.vercel.app/",
     cloneUrl: "https://github.com/Tamakuz/honeymovie.git",
     techStack: ["SiNextdotjs", "SiTailwindcss", "SiTypescript"],
   },

@@ -1,6 +1,12 @@
 {
   "title": "project",
-  "slug": "project",
   "type": "object",
-  "properties": {}
+  "properties": {
+    "testing": {
+      "required": false,
+      "fieldType": "Number",
+      "dataType": "number",
+      "title": "testing"
+    }
+  }
 }

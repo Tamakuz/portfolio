@@ -1,0 +1,23 @@
+{
+  "commit": "",
+  "generated": "2025-03-08T03:20:14.463Z",
+  "metadata": [
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "1046823228",
+        "path": "outstatic/content/project/testslug.mdx"
+      },
+      "author": {
+        "name": "Jovan Panji Pratama",
+        "picture": "https://avatars.githubusercontent.com/u/117788207?v=4"
+      },
+      "collection": "project",
+      "publishedAt": "2025-03-08T04:01:01.284Z",
+      "slug": "testslug",
+      "status": "draft",
+      "testing": 434,
+      "title": ""
+    }
+  ]
+}

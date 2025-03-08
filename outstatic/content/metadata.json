@@ -1,23 +1,6 @@
 {
-  "commit": "bda165e91f07b1900faacaf50d6f64af28b9813a",
-  "generated": "2025-03-08T03:21:33.035Z",
+  "commit": "9e972dce06e9011de53e1e2296de039a713b437d",
+  "generated": "2025-03-08T03:25:25.996Z",
   "metadata": [
-    {
-      "__outstatic": {
-        "commit": "bda165e91f07b1900faacaf50d6f64af28b9813a",
-        "hash": "868231897",
-        "path": "outstatic/content/project/testslug.mdx"
-      },
-      "author": {
-        "name": "Jovan Panji Pratama",
-        "picture": "https://avatars.githubusercontent.com/u/117788207?v=4"
-      },
-      "collection": "project",
-      "publishedAt": "2025-03-08T04:01:01.284Z",
-      "slug": "testslug",
-      "status": "published",
-      "testing": 434,
-      "title": ""
-    }
   ]
 }

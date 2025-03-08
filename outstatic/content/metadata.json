@@ -1,11 +1,11 @@
 {
-  "commit": "",
-  "generated": "2025-03-08T03:20:14.463Z",
+  "commit": "bda165e91f07b1900faacaf50d6f64af28b9813a",
+  "generated": "2025-03-08T03:21:33.035Z",
   "metadata": [
     {
       "__outstatic": {
-        "commit": "",
-        "hash": "1046823228",
+        "commit": "bda165e91f07b1900faacaf50d6f64af28b9813a",
+        "hash": "868231897",
         "path": "outstatic/content/project/testslug.mdx"
       },
       "author": {
@@ -15,7 +15,7 @@
       "collection": "project",
       "publishedAt": "2025-03-08T04:01:01.284Z",
       "slug": "testslug",
-      "status": "draft",
+      "status": "published",
       "testing": 434,
       "title": ""
     }
